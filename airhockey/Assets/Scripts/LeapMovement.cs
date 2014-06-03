@@ -1,10 +1,9 @@
 ﻿using UnityEngine;
 using System.Collections.Generic;
 using Leap;
-public class Movement : MonoBehaviour {
+public class LeapMovement : MonoBehaviour {
 	Controller controller;
 	public Renderer planeRenderer;
-	public Renderer wallRenderer;
 	void Start () {
 		controller = new Controller();
 		Debug.Log ("ASDSA");
@@ -27,7 +26,7 @@ public class Movement : MonoBehaviour {
 			float wallWidth =planeRenderer.bounds.size.x;
 			Debug.Log(planeWidth);
 			Vector3 force=new Vector3(0.0f,0.0f,1000.0f);
-			rigidbody.AddForce(force*100);
+			//rigidbody.AddForce(force*100);
 			//rigidbody.MovePosition(new Vector3(rigidbody.position.x,rigidbody.position.y,3.0f));
 			return;
 		}

@@ -2,8 +2,8 @@
 using System.Collections;
 using Leap;
 
-public class LeapBehavior : MonoBehaviour {
-	public float speed=500;
+public class KeyboardMovement : MonoBehaviour {
+	public float speed=150000;
 	Controller controller;
 	// Use this for initialization
 	void Start () {
