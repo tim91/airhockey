@@ -8,6 +8,8 @@ public class BumperPosition : Photon.MonoBehaviour {
 	private Vector3 lastForce=Vector3.zero;
 	float border = 100;
 	float hb=50;
+	public float lerpFraction=0.1f;
+	Vector3 realPosition=Vector3.zero;
 	// Use this for initialization
 	void Start () {
 		controller = new Controller();
@@ -15,38 +17,20 @@ public class BumperPosition : Photon.MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		Frame frame = controller.Frame();
-		HandList hands = frame.Hands;
-		Hand hand=hands[0];
-		InteractionBox interactionBox = frame.InteractionBox;
-		Vector lv = interactionBox.NormalizePoint(hand.PalmPosition);
-		n=new Vector3(lv.x,lv.y,lv.z);
-		moveBumper(n);
+		if (PlayerHelper.isPlayer (2)) {
+			transform.position = Vector3.Lerp (transform.position, realPosition, lerpFraction);
+		}
 	}
 	public void OnPhotonSerializeView(PhotonStream stream,PhotonMessageInfo info){
 
-		Debug.Log ("serialize");
 		if (stream.isWriting) {
-				stream.SendNext(n);
+			if (PlayerHelper.isPlayer (1)) {
+				stream.SendNext (transform.position);
+			}
 		} else {
-			n=(Vector3)stream.ReceiveNext();
-			moveBumper(n);
+				if (PlayerHelper.isPlayer (2)) {
+					realPosition = (Vector3)stream.ReceiveNext ();
+				}
 		}
-	}
-
-	void moveBumper(Vector3 n){
-
-		n.x=n.x*border-hb;
-		n.x=Mathf.Max (-42,n.x);
-		n.x=Mathf.Min (42,n.x);
-		n.z=-n.z*border+hb;
-		n.z=Mathf.Max (-42,n.z);
-		n.z=Mathf.Min (42,n.z);
-
-		Vector3 force=n-rigidbody.position;
-
-		rigidbody.AddForce(lastForce*-800);
-		rigidbody.AddForce(force*1000);
-		lastForce=force;
 	}
 }
