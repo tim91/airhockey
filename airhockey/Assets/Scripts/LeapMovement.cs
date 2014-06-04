@@ -22,10 +22,10 @@ public class LeapMovement : MonoBehaviour {
 		if ( Input.GetMouseButtonDown(0))
 		{
 			Debug.Log("click");
-			float planeWidth =planeRenderer.bounds.size.x;
-			float wallWidth =planeRenderer.bounds.size.x;
-			Debug.Log(planeWidth);
-			Vector3 force=new Vector3(0.0f,0.0f,1000.0f);
+			//float planeWidth =planeRenderer.bounds.size.x;
+			//float wallWidth =planeRenderer.bounds.size.x;
+			//Debug.Log(planeWidth);
+			//Vector3 force=new Vector3(0.0f,0.0f,1000.0f);
 			//rigidbody.AddForce(force*100);
 			//rigidbody.MovePosition(new Vector3(rigidbody.position.x,rigidbody.position.y,3.0f));
 			return;

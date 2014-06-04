@@ -1,8 +1,11 @@
 ﻿<Properties>
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\LeapBehavior.cs">
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="MonoDevelop.Default" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\KeyboardMovement.cs">
     <Files>
-      <File FileName="Assets\Scripts\LeapBehavior.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\BumperPosition.cs" Line="27" Column="3" />
+      <File FileName="Assets\Scripts\LeapMovement.cs" Line="18" Column="2" />
+      <File FileName="Assets\Scripts\NetworkManager.cs" Line="61" Column="79" />
+      <File FileName="Assets\Scripts\KeyboardMovement.cs" Line="24" Column="32" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
