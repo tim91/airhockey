@@ -15,24 +15,6 @@ public class NetworkManager : MonoBehaviour {
 	void Connect () {
 		PhotonNetwork.ConnectUsingSettings ("0.0.1");
 	}
-	//wyswietla label o stanie polaczenia
-	void OnGUI(){
-		showGameInfo();
-	}
-	void showGameInfo(){
-		string msg="Status: "+PhotonNetwork.connectionStateDetailed.ToString ();
-		msg+=showRoomInfo();
-		msg+="\nPlayerName: "+PhotonNetwork.playerName;
-		GUILayout.Label (msg);
-	}
-	string showRoomInfo(){
-		string msg = "";
-		if (PhotonNetwork.room == null)
-			return msg;
-		msg+="\nRoom: " + PhotonNetwork.room.name;
-		msg+= "\nPlayerCount: " + PhotonNetwork.room.playerCount;
-		return msg;
-	}
 	//podlaczono do serwera
 	void OnJoinedLobby(){
 		Debug.Log ("OnJoinedLobby");
