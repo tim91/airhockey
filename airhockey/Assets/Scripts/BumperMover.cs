@@ -11,8 +11,13 @@ public class BumperMover  {
 	}
 	public void positionChanged(byte code,object content,int senderId){
 		if (code == 55) {
-			Vector3 pos=(Vector3)content;
-			moveBumper(pos);
+				Vector3 pos = (Vector3)content;
+				moveBumper (pos);
+		} else if (code == 57) {
+			PlayerHelper.names[1]=(string)content;
+			Debug.Log ("send name: "+ PhotonNetwork.playerName);
+			PhotonNetwork.RaiseEvent (57, PhotonNetwork.playerName,true, null);
+			Game.startGame ();
 		}
 	}
 
@@ -21,7 +26,8 @@ public class BumperMover  {
 	float hb=50;
 	
 	void moveBumper(Vector3 n){
-
+		if (!Game.isGameStarted ())
+			return;
 		n *= side;
 		n.x=n.x*border-hb;
 		n.x=Mathf.Max (-42,n.x);

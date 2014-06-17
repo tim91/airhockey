@@ -20,6 +20,8 @@ public class KeyboardMovement : Photon.MonoBehaviour {
 	// Update is called once per frame
 	void FixedUpdate () {
 		//return;
+				if (!Game.isGameStarted ())
+						return;
 				float h = Input.GetAxis ("Horizontal");
 				float v = Input.GetAxis ("Vertical");
 

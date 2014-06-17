@@ -13,6 +13,9 @@ public class ScoreTrigger : MonoBehaviour {
 	}
 	// Use this for initialization
 	void OnTriggerEnter (Collider other) {
+		if (other.isTrigger == true)
+						return;
+		audio.Play ();
 		Debug.Log ("score");
 		bumper1.rigidbody.velocity = Vector3.zero;
 		bumper1.rigidbody.angularVelocity = Vector3.zero;

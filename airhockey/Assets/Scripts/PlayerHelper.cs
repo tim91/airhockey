@@ -3,7 +3,9 @@ using System.Collections;
 
 public class PlayerHelper {
 
-	private static int[] scores = {0,0};
+	public static int[] scores = {0,0};
+	private static string defaultName="<Unknown>";
+	public static string[] names={defaultName,defaultName};
 	public static bool playerExist(){
 		if (PhotonNetwork.player == null || PhotonNetwork.player.customProperties["playerId"]==null){
 			return false;
@@ -12,9 +14,6 @@ public class PlayerHelper {
 	}
 
 	public static bool oponentExist(){
-		if (PhotonNetwork.countOfPlayers!=2){
-			return false;
-		}
 		return true;
 	}
 	public static bool isPlayer(int id){
@@ -35,43 +34,47 @@ public class PlayerHelper {
 		return scores[playerId-1];
 	}
 
+	public static int getOponentId(){
+		if (isPlayer (1))
+			return 2;
+		return 1;
+	}
+
 	public static int getMyScore(){
 		return getScore (getCurrentPlayerId ());
 	}
 	public static string getOponentName(){
-		return getOponent ().name;
+		if (isPlayer (1))
+			return names[1];
+		return names[0];
 	}
 
-	public static PhotonPlayer getOponent(){
-		if (isPlayer (1))
-				return getPlayer (2);
-		else if (isPlayer (2))
-				return getPlayer (1);
-		else
-				return null;
-	}
+
 	public static int getOponentScore(){
 		if (isPlayer (1))
-				return getScore (1);
-		else
-				return getScore (2);
+			return scores[1];
+		return scores[0];
 	}
 	public static void score(int playerId){
 		scores [playerId - 1]++;
-		PhotonNetwork.RaiseEvent (56, scores [playerId - 1],true, null);
+		Debug.Log ("Player: " + playerId + " send score: "+scores [playerId - 1]+". Current: "+getCurrentPlayerId());
+		PhotonNetwork.RaiseEvent (56,scores,true, null);
 	}
 
-	public static int getPlayerSide(int id){
-		return (int)getPlayer(id).customProperties["side"];
-	}
-
-	public static PhotonPlayer getPlayer(int id){
-	
-		foreach (PhotonPlayer player in PhotonNetwork.playerList) {
-			if((int)player.customProperties["playerId"]==id){
-				return player;
+	public static IList getConnetedNames(){
+		IList list = new ArrayList ();
+		foreach (string name in names) {
+			if(!name.Equals(defaultName)){
+				list.Add (name);
 			}
 		}
-		return null;
+
+		return list;
 	}
+
+
+	//public static int getPlayerSide(int id){
+	//	return (int)getPlayer(id).customProperties["side"];
+	//}
+	
 }
