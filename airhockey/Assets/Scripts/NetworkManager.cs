@@ -65,7 +65,7 @@ public class NetworkManager : MonoBehaviour {
 	public void scoreChanged(byte code,object content,int senderId){
 		Debug.Log ("Recive event: "+code+". Current: "+PlayerHelper.getCurrentPlayerId());
 		 if (code == 56) {
-			PlayerHelper.scores=(int[])content;	
+			PlayerHelper.setScore ((int[])content);	
 		} else if (code == 57) {
 			PlayerHelper.names[0]=(string)content;
 			Game.startGame ();

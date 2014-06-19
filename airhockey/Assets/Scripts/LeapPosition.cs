@@ -39,7 +39,7 @@ public class LeapPosition : MonoBehaviour {
 
 		} else if (PlayerHelper.isPlayer (1))  {
 
-			//getBumperMover().positionChanged(55,n,0);
+			getBumperMover().positionChanged(55,n,0);
 		}
 
 

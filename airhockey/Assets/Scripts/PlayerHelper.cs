@@ -2,7 +2,7 @@
 using System.Collections;
 
 public class PlayerHelper {
-
+	static int maxScore=10;
 	public static int[] scores = {0,0};
 	private static string defaultName="<Unknown>";
 	public static string[] names={defaultName,defaultName};
@@ -59,8 +59,12 @@ public class PlayerHelper {
 		scores [playerId - 1]++;
 		Debug.Log ("Player: " + playerId + " send score: "+scores [playerId - 1]+". Current: "+getCurrentPlayerId());
 		PhotonNetwork.RaiseEvent (56,scores,true, null);
+		checkScore ();
 	}
-
+	public static void setScore(int[] scores){
+		PlayerHelper.scores = scores;
+		checkScore ();
+	}
 	public static IList getConnetedNames(){
 		IList list = new ArrayList ();
 		foreach (string name in names) {
@@ -72,9 +76,14 @@ public class PlayerHelper {
 		return list;
 	}
 
+	public static void checkScore()
+	{
+		if (getMyScore () == maxScore) {
+			Game.stopGame(getCurrentPlayerId());
+		}
+		if (getOponentScore () == maxScore) {
+			Game.stopGame(getOponentId());
+		}
+	}
 
-	//public static int getPlayerSide(int id){
-	//	return (int)getPlayer(id).customProperties["side"];
-	//}
-	
 }

@@ -19,3 +19,33 @@ Loading D:\gitHub\airhockey\airhockey\Builds\airhockey_Data\Managed\Photon3Unity
 desktop: 1600x900 60Hz; virtual: 3040x900 at -1440,0
 <RI> Initializing input.
 <RI> Input initialized.
+Platform assembly: D:\gitHub\airhockey\airhockey\Builds\airhockey_Data\Managed\System.Core.dll (this message is harmless)
+Platform assembly: D:\gitHub\airhockey\airhockey\Builds\airhockey_Data\Managed\System.dll (this message is harmless)
+OnJoinedLobby
+ 
+(Filename: C:/BuildAgent/work/d3d49558e4d408f4/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 53)
+
+Room joined
+ 
+(Filename: C:/BuildAgent/work/d3d49558e4d408f4/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 53)
+
+Recive event: 57. Current: 2
+ 
+(Filename: C:/BuildAgent/work/d3d49558e4d408f4/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 53)
+
+Recive event: 56. Current: 2
+ 
+(Filename: C:/BuildAgent/work/d3d49558e4d408f4/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 53)
+
+Recive event: 56. Current: 2
+ 
+(Filename: C:/BuildAgent/work/d3d49558e4d408f4/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 53)
+
+Recive event: 56. Current: 2
+ 
+(Filename: C:/BuildAgent/work/d3d49558e4d408f4/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 53)
+
+Recive event: 56. Current: 2
+ 
+(Filename: C:/BuildAgent/work/d3d49558e4d408f4/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 53)
+
