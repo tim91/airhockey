@@ -16,7 +16,6 @@ public class ScoreTrigger : MonoBehaviour {
 		if (other.isTrigger == true)
 						return;
 		audio.Play ();
-		Debug.Log ("score");
 		bumper1.rigidbody.velocity = Vector3.zero;
 		bumper1.rigidbody.angularVelocity = Vector3.zero;
 		bumper2.rigidbody.velocity = Vector3.zero;
@@ -25,11 +24,11 @@ public class ScoreTrigger : MonoBehaviour {
 		other.rigidbody.angularVelocity = Vector3.zero;
 
 		bumper1.transform.position=new Vector3(0.0f,bumper1.transform.position.y,-40.0f);
-		//bumper2.transform.position=new Vector3(0.0f,bumper2.transform.position.y,40.0f);
+		bumper2.transform.position=new Vector3(0.0f,bumper2.transform.position.y,40.0f);
 
 		if (PlayerHelper.isPlayer (1)) {
 			PlayerHelper.score(playerId);
-			float z=20.0f*-1;
+			float z=20.0f*1;
 			other.transform.position=new Vector3(0.0f,other.transform.position.y,z);
 
 		}
